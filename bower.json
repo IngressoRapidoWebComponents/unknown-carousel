@@ -16,7 +16,10 @@
     "slider"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.11.0"
+    "polymer": "Polymer/polymer#^1.11.0",
+    "iron-resizable-behavior": "2.1.1",
+    "paper-styles": "2.1.0",
+    "iron-icons": "2.1.1"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
