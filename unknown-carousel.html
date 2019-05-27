@@ -284,7 +284,7 @@
               t = a[e],
                 "template" === t.localName || t.classList.contains("cloned") || h++;
           else
-            if(!!n) {
+            if (n) {
               for (l = n.children,
                 o = 0,
                 r = l.length; o < r; o++)
@@ -298,7 +298,7 @@
           for (i = this,
             r = i.querySelector(".unknown-carousel_wrapper"),
             n = 0,
-            s = !!r ? r.children : [],
+            s = r ? r.children : [],
             e = 0,
             o = s.length; e < o; e++)
             t = s[e],
@@ -327,7 +327,7 @@
           var t, e, o, i, r;
           return t = this,
             e = t.querySelector(".unknown-carousel_wrapper"),
-            o = !!e ? e.style.transform : '',
+            o = e ? e.style.transform : '',
             r = 0,
             "" !== o && (i = o.match(/translateX\((.*)/)[0],
               r = i.match(/\((.*)\)/)[0],
@@ -421,8 +421,8 @@
             r = i.querySelector(".unknown-carousel_wrapper"),
             e = Math.round(100 / this.getTotalItems() * 1e3) / 1e3,
             o = Math.round(100 / this._getRealTotalItems() * 1e3) / 1e3,
-            l = (this.items() - (!!this.getPages()[t] ? this.getPages()[t].length : 0)) * e,
-            h = (this.items() - (!!this.getPages()[t] ? this.getPages()[t].length : 0)) * o,
+            l = (this.items() - (this.getPages()[t] ? this.getPages()[t].length : 0)) * e,
+            h = (this.items() - (this.getPages()[t] ? this.getPages()[t].length : 0)) * o,
             n = -e * this.items(),
             a = -o * this.items(),
             s = this._isLoop() ? Math.round(1e3 * (t * a + h)) / 1e3 + a : Math.round(1e3 * (t * n + l)) / 1e3,
@@ -464,12 +464,12 @@
             n = s.getBoundingClientRect(),
             o = this._isLoop() ? n.width * s._getRealTotalItems() / this.items() : n.width * s.getTotalItems() / this.items(),
             e = this._isLoop ? Math.round(100 / this._getRealTotalItems() * 1e4) / 1e4 : Math.round(100 / this.getTotalItems() * 1e4) / 1e4,
-            l = !!a ? a.children : [],
+            l = a ? a.children : [],
             i = 0,
             r = l.length; i < r; i++)
             t = l[i],
               "template" !== t.localName && (t.style.width = e + "%");
-          return !!a ? a.style.minWidth = o + "px" : null
+          return a ? a.style.minWidth = o + "px" : null
         },
         _setActiveDot: function (t) {
           var e, o, i, r;
@@ -726,15 +726,15 @@
           return t = this,
             e = t.querySelector(".unknown-carousel_wrapper"),
             t.listen(this.$$(".unknown-carousel_wrapper"), "track", "_getDragState"),
-            !!e ? e.style.touchAction = "" : null
+            e ? e.style.touchAction = "" : null
         },
         _setInitialPosition: function () {
           var t, e;
           return t = this,
             e = t.querySelector(".unknown-carousel_wrapper"),
-            !!e ? e.style.transition = "none" : null,
+            e ? e.style.transition = "none" : null,
             t.goToItem(0),
-            !!e ? e.style.transition = "" : null,
+            e ? e.style.transition = "" : null,
             t.initialize = !0
         },
         refresh: function () {
