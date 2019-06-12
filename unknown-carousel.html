@@ -299,7 +299,7 @@
           for (i = this,
             r = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
             n = 0,
-            s = r ? i.parentElement.querySelectorAll('div.box-wrapper') : [],
+            s = r ? Polymer.dom(i).querySelectorAll('.unknown-carousel_wrapper > div') : [],
             e = 0,
             o = s.length; e < o; e++)
             t = s[e],
