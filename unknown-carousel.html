@@ -461,11 +461,11 @@
         _setContainerSize: function () {
           var t, e, o, i, r, s, n, a, l;
           for (s = this,
-            a = s.parentElement.querySelectorAll('div.box-wrapper') || [],
+            a = s.shadowRoot.querySelector(".unknown-carousel_wrapper"),
             n = s.getBoundingClientRect(),
             o = this._isLoop() ? n.width * s._getRealTotalItems() / this.items() : n.width * s.getTotalItems() / this.items(),
             e = this._isLoop ? Math.round(100 / this._getRealTotalItems() * 1e4) / 1e4 : Math.round(100 / this.getTotalItems() * 1e4) / 1e4,
-            l = a ? a.children : [],
+            l = a ? s.parentElement.querySelectorAll('div.box-wrapper') || [] : [],
             i = 0,
             r = l.length; i < r; i++)
             t = l[i],
