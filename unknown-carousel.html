@@ -675,7 +675,7 @@
               t = function () {
                 var t;
                 return t = [],
-                  [].forEach.call(i.children, function (e, i) {
+                  [].forEach.call(Polymer.dom(o).querySelectorAll('.unknown-carousel_wrapper > div'), function (e, i) {
                     var r;
                     if (i < o.items() && (r = e.cloneNode(!0),
                       r.classList.add("cloned"),
@@ -701,7 +701,7 @@
                 return i.appendChild(t)
               }),
               [].forEach.call(o.itemsToPrepend.reverse(), function (t, e) {
-                return i.insertBefore(t.cloneNode(!0), i.children[0])
+                return i.insertBefore(t.cloneNode(!0), Polymer.dom(o).querySelectorAll('.unknown-carousel_wrapper > div')[0])
               })
         },
         _autoPlay: function () {
