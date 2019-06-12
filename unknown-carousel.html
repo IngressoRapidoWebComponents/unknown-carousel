@@ -285,7 +285,6 @@
                 "template" === t.localName || t.classList.contains("cloned") || h++; }
           else
             if (n) {
-              debugger;
               for (l = s.parentElement.querySelectorAll('div.box-wrapper'),
                 o = 0,
                 r = l.length; o < r; o++)
@@ -462,7 +461,7 @@
         _setContainerSize: function () {
           var t, e, o, i, r, s, n, a, l;
           for (s = this,
-            a = s.shadowRoot.querySelector(".unknown-carousel_wrapper"),
+            a = s.parentElement.querySelectorAll('div.box-wrapper') || [],
             n = s.getBoundingClientRect(),
             o = this._isLoop() ? n.width * s._getRealTotalItems() / this.items() : n.width * s.getTotalItems() / this.items(),
             e = this._isLoop ? Math.round(100 / this._getRealTotalItems() * 1e4) / 1e4 : Math.round(100 / this.getTotalItems() * 1e4) / 1e4,
