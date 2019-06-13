@@ -263,8 +263,7 @@
           if (t = this,
             e = t.getAttribute("transitionspeed"),
             null !== e && void 0 !== e)
-            return t.customStyle["--transition-speed"] = e + "ms",
-              t.updateStyles()
+            return t.updateStyles({"--transition-speed": e + "ms"})
         },
         _isAutoplay: function () {
           var t, e;
