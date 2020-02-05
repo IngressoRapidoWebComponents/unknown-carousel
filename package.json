@@ -1,0 +1,36 @@
+{
+  "description": "Element can be used to elements",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "polymer",
+    "carousel",
+    "slider"
+  ],
+  "homepage": "https://ingressorapidowebcomponents.github.io/components/unknown-carousel",
+  "name": "unknown-carousel",
+  "version": "3.0.0",
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0"
+  },
+  "main": "unkown-carousel.js",
+  "contributors": [
+    "Lucas de Oliveira (https://github.com/lcassiano1612)",
+    "Andrew Willard (https://github.com/andrew-silva-movile)"
+  ],
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0",
+    "@polymer/iron-resizable-behavior": "^3.0.0",
+    "@polymer/paper-styles": "^3.0.0",
+    "@polymer/iron-icons": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-component-page": "^4.0.0",
+    "@polymer/iron-demo-helpers": "^3.0.0",
+    "wct-browser-legacy": "^1.0.1",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
+  }
+}
