@@ -3,8 +3,8 @@ import '../@polymer/iron-resizable-behavior/iron-resizable-behavior.js';
 import '../@polymer/paper-styles/color.js';
 import '../@polymer/polymer/polymer-legacy.js';
 
-import { Polymer } from '../node_modules/@polymer/polymer/lib/legacy/polymer-fn.js';
-import { html } from '../node_modules/@polymer/polymer/lib/utils/html-tag.js';
+import { Polymer } from '../@polymer/polymer/lib/legacy/polymer-fn.js';
+import { html } from '../@polymer/polymer/lib/utils/html-tag.js';
 
 Polymer({
   _template: html`
