@@ -16,7 +16,7 @@
     "supports-color": "3.1.2",
     "type-detect": "1.0.0"
   },
-  "main": "unkown-carousel.html",
+  "main": "unkown-carousel.js",
   "contributors": [
     "Lucas de Oliveira (https://github.com/lcassiano1612)",
     "Andrew Willard (https://github.com/andrew-silva-movile)"
