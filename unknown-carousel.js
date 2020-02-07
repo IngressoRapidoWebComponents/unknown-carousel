@@ -703,22 +703,34 @@ Polymer({
         e = o.querySelectorAll(".unknown-carousel_wrapper .cloned"),
         t = function () {
           var t;
-          return t = [],
-            [].forEach.call(Polymer.dom(o).querySelectorAll('.unknown-carousel_wrapper > div'), function (e, i) {
-              var r;
-              if (i < o.items() && (r = e.cloneNode(!0),
-                r.classList.add("cloned"),
-                o.itemsToAppend.push(r)),
-                i >= o.getTotalItems() - o.items() && i <= o.getTotalItems())
-                return t.push(e)
-            }),
-            [].forEach.call(t, function (t, e) {
+          return (
+            (t = []),
+            [].forEach.call(
+              this.shadowRoot.querySelectorAll(
+                ".unknown-carousel_wrapper > div"
+              ),
+              function(e, i) {
+                var r;
+                if (
+                  (i < o.items() &&
+                    ((r = e.cloneNode(!0)),
+                    r.classList.add("cloned"),
+                    o.itemsToAppend.push(r)),
+                  i >= o.getTotalItems() - o.items() && i <= o.getTotalItems())
+                )
+                  return t.push(e);
+              }
+            ),
+            [].forEach.call(t, function(t, e) {
               var i;
               if (e < o.items())
-                return i = t.cloneNode(!0),
+                return (
+                  (i = t.cloneNode(!0)),
                   i.classList.add("cloned"),
                   o.itemsToPrepend.push(i)
+                );
             })
+          );
         }
         ,
         e.length > 0 ? [].forEach.call(e, function (o, i) {
@@ -730,7 +742,12 @@ Polymer({
           return i.appendChild(t)
         }),
         [].forEach.call(o.itemsToPrepend.reverse(), function (t, e) {
-          return i.insertBefore(t.cloneNode(!0), Polymer.dom(o).querySelectorAll('.unknown-carousel_wrapper > div')[0])
+          return i.insertBefore(
+            t.cloneNode(!0),
+            this.shadowRoot.querySelectorAll(
+              ".unknown-carousel_wrapper > div"
+            )[0]
+          );
         })
   },
 
