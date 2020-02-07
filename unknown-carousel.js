@@ -283,17 +283,17 @@ Polymer({
   getTotalItems: function () {
     var t, e, o, i, r, s, n, a, l, h;
     if (s = this,
-      n = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      n = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       h = 0,
       s._isLoop()) {
-      for (a = Polymer.dom(s).querySelectorAll('.unknown-carousel_wrapper > div'),
+      for (a = this.shadowRoot.querySelectorAll('.unknown-carousel_wrapper > div'),
         e = 0,
         i = a.length; e < i; e++)
         t = a[e],
           "template" === t.localName || t.classList.contains("cloned") || h++; }
     else
       if (n) {
-        for (l = Polymer.dom(s).querySelectorAll('.unknown-carousel_wrapper > div'),
+        for (l = this.shadowRoot.querySelectorAll('.unknown-carousel_wrapper > div'),
           o = 0,
           r = l.length; o < r; o++)
           t = l[o],
@@ -306,9 +306,9 @@ Polymer({
   _getRealTotalItems: function () {
     var t, e, o, i, r, s, n;
     for (i = this,
-      r = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      r = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       n = 0,
-      s = r ? Polymer.dom(i).querySelectorAll('.unknown-carousel_wrapper > div') : [],
+      s = r ? this.shadowRoot.querySelectorAll('.unknown-carousel_wrapper > div') : [],
       e = 0,
       o = s.length; e < o; e++)
       t = s[e],
@@ -339,7 +339,7 @@ Polymer({
   getContainerPosition: function () {
     var t, e, o, i, r;
     return t = this,
-      e = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      e = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       o = e ? e.style.transform : '',
       r = 0,
       "" !== o && (i = o.match(/translateX\((.*)/)[0],
@@ -374,7 +374,7 @@ Polymer({
   goToItem: function (t) {
     var e, o, i, r;
     return o = this,
-      i = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      i = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       this._isLoop() ? (e = Math.round(100 / this._getRealTotalItems() * 1e3) / 1e3,
         r = Math.round((t + this.itemsToPrepend.length) * -e * 1e3) / 1e3) : (e = Math.round(100 / this.getTotalItems() * 1e3) / 1e3,
           r = Math.round(t * -e * 1e3) / 1e3),
@@ -387,7 +387,7 @@ Polymer({
   goToNextItem: function () {
     var t, e, o, i;
     if (o = this,
-      i = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      i = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       t = Math.round(100 / this.getTotalItems() * 1e3) / 1e3,
       e = Math.round(100 / this._getRealTotalItems() * 1e3) / 1e3,
       this._isLoop()) {
@@ -404,7 +404,7 @@ Polymer({
   goToPrevItem: function () {
     var t, e, o, i;
     if (o = this,
-      i = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      i = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       t = Math.round(100 / this.getTotalItems() * 1e3) / 1e3,
       e = Math.round(100 / this._getRealTotalItems() * 1e3) / 1e3,
       this._isLoop) {
@@ -437,7 +437,7 @@ Polymer({
   goToPage: function (t) {
     var e, o, i, r, s, n, a, l, h;
     return i = this,
-      r = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      r = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       e = Math.round(100 / this.getTotalItems() * 1e3) / 1e3,
       o = Math.round(100 / this._getRealTotalItems() * 1e3) / 1e3,
       l = (this.items() - (this.getPages()[t] ? this.getPages()[t].length : 0)) * e,
@@ -484,11 +484,11 @@ Polymer({
   _setContainerSize: function () {
     var t, e, o, i, r, s, n, a, l;
     for (s = this,
-      a = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      a = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       n = s.getBoundingClientRect(),
       o = this._isLoop() ? n.width * s._getRealTotalItems() / this.items() : n.width * s.getTotalItems() / this.items(),
       e = this._isLoop ? Math.round(100 / this._getRealTotalItems() * 1e4) / 1e4 : Math.round(100 / this.getTotalItems() * 1e4) / 1e4,
-      l = a ? Polymer.dom(s).querySelectorAll('.unknown-carousel_wrapper > div') || [] : [],
+      l = a ? this.shadowRoot.querySelectorAll('.unknown-carousel_wrapper > div') || [] : [],
       i = 0,
       r = l.length; i < r; i++)
       t = l[i],
@@ -538,7 +538,7 @@ Polymer({
         }),
         r.listen(s, "tap", "goToNextItem"),
         r.listen(a, "tap", "goToPrevItem"),
-        Polymer.dom(s).appendChild(n),
+        this.shadowRoot.appendChild(n),
         Polymer.dom(a).appendChild(l),
         Polymer.dom(e).appendChild(o),
         Polymer.dom(o).appendChild(a),
@@ -595,8 +595,8 @@ Polymer({
           e = document.createElement("li"),
           e.classList.add("unknown-carousel_dot-line"),
           Polymer.dom(o).appendChild(i),
-          Polymer.dom(s).appendChild(o),
-          n === this.getTotalPages() && Polymer.dom(s).appendChild(e),
+          this.shadowRoot.appendChild(o),
+          n === this.getTotalPages() && this.shadowRoot.appendChild(e),
           n++;
       return this.getTotalPages() > 1 && Polymer.dom(a.root).appendChild(r),
         this._setActiveDot(this.getCurrentPage())
@@ -606,7 +606,7 @@ Polymer({
   _getDragState: function (t) {
     var e, o, i, r, s, n, a, l, h, u, c, g, d, m, p, f, v, _, T;
     switch (u = this,
-    c = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+    c = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
     g = c.getBoundingClientRect(),
     d = Math.round(100 * t.detail.dx / g.width * 1e3) / 1e3,
     s = Math.round(100 / this.getTotalItems() * 1e3) / 1e3,
@@ -696,7 +696,7 @@ Polymer({
     var t, e, o, i, r;
     if (o = this,
       o._isLoop())
-      return i = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      return i = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
         r = 0,
         o.itemsToAppend = [],
         o.itemsToPrepend = [],
@@ -757,7 +757,7 @@ Polymer({
   _onDrag: function () {
     var t, e;
     return t = this,
-      e = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      e = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       t.listen(this.$$(".unknown-carousel_wrapper"), "track", "_getDragState"),
       e ? e.style.touchAction = "" : null
   },
@@ -765,7 +765,7 @@ Polymer({
   _setInitialPosition: function () {
     var t, e;
     return t = this,
-      e = Polymer.dom(this.root).querySelector(".unknown-carousel_wrapper"),
+      e = this.shadowRoot.querySelector(".unknown-carousel_wrapper"),
       e ? e.style.transition = "none" : null,
       t.goToItem(0),
       e ? e.style.transition = "" : null,
