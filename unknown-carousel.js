@@ -718,9 +718,10 @@ Polymer({
           return (
             (t = []),
             [].forEach.call(
-              this.shadowRoot.querySelectorAll(
-                ".unknown-carousel_wrapper > div"
-              ),
+              this.shadowRoot
+                .querySelector('slot')
+                .assignedNodes({ flatten: true })
+                .filter(n => n.nodeType === Node.ELEMENT_NODE),
               function(e, i) {
                 var r;
                 if (
@@ -756,9 +757,10 @@ Polymer({
         [].forEach.call(o.itemsToPrepend.reverse(), function (t, e) {
           return i.insertBefore(
             t.cloneNode(!0),
-            this.shadowRoot.querySelectorAll(
-              ".unknown-carousel_wrapper > div"
-            )[0]
+            this.shadowRoot
+              .querySelector('slot')
+              .assignedNodes({ flatten: true })
+              .filter(n => n.nodeType === Node.ELEMENT_NODE)[0]
           );
         })
   },
