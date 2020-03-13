@@ -270,7 +270,7 @@ Polymer({
     if (t = this,
       e = t.getAttribute("transitionspeed"),
       null !== e && void 0 !== e)
-      return t.updateStyles({"--transition-speed": e + "ms"})
+      return t.updateStyles({ "--transition-speed": e + "ms" })
   },
 
   _isAutoplay: function () {
@@ -281,25 +281,26 @@ Polymer({
   },
 
   getTotalItems: function () {
-      var t, e, o, i, r, s, n, a, l, h;
+    var t, e, o, i, r, s, n, a, l, h;
     if (s = this,
       n = this.$.carouselWrapper,
       h = 0,
       s._isLoop()) {
       for (a = this.shadowRoot
-      .querySelector('slot')
-      .assignedNodes({ flatten: true })
-      .filter(n => n.nodeType === Node.ELEMENT_NODE),
+        .querySelector('slot')
+        .assignedNodes({ flatten: true })
+        .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName !== 'DOM-REPEAT'),
         e = 0,
         i = a.length; e < i; e++)
         t = a[e],
-          "template" === t.localName || t.classList.contains("cloned") || h++; }
+          "template" === t.localName || t.classList.contains("cloned") || h++;
+    }
     else
       if (n) {
         for (l = this.shadowRoot
-      .querySelector('slot')
-      .assignedNodes({ flatten: true })
-      .filter(n => n.nodeType === Node.ELEMENT_NODE),
+          .querySelector('slot')
+          .assignedNodes({ flatten: true })
+          .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName !== 'DOM-REPEAT'),
           o = 0,
           r = l.length; o < r; o++)
           t = l[o],
@@ -315,9 +316,9 @@ Polymer({
       r = this.$.carouselWrapper,
       n = 0,
       s = r ? this.shadowRoot
-      .querySelector('slot')
-      .assignedNodes({ flatten: true })
-      .filter(n => n.nodeType === Node.ELEMENT_NODE) : [],
+        .querySelector('slot')
+        .assignedNodes({ flatten: true })
+        .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName !== 'DOM-REPEAT') : [],
       e = 0,
       o = s.length; e < o; e++)
       t = s[e],
@@ -498,9 +499,9 @@ Polymer({
       o = this._isLoop() ? n.width * s._getRealTotalItems() / this.items() : n.width * s.getTotalItems() / this.items(),
       e = this._isLoop ? Math.round(100 / this._getRealTotalItems() * 1e4) / 1e4 : Math.round(100 / this.getTotalItems() * 1e4) / 1e4,
       l = a ? this.shadowRoot
-      .querySelector('slot')
-      .assignedNodes({ flatten: true })
-      .filter(n => n.nodeType === Node.ELEMENT_NODE) || [] : [],
+        .querySelector('slot')
+        .assignedNodes({ flatten: true })
+        .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName !== 'DOM-REPEAT') || [] : [],
       i = 0,
       r = l.length; i < r; i++)
       t = l[i],
@@ -721,20 +722,20 @@ Polymer({
               this.shadowRoot
                 .querySelector('slot')
                 .assignedNodes({ flatten: true })
-                .filter(n => n.nodeType === Node.ELEMENT_NODE),
-              function(e, i) {
+                .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName !== 'DOM-REPEAT'),
+              function (e, i) {
                 var r;
                 if (
                   (i < o.items() &&
                     ((r = e.cloneNode(!0)),
-                    r.classList.add("cloned"),
-                    o.itemsToAppend.push(r)),
-                  i >= o.getTotalItems() - o.items() && i <= o.getTotalItems())
+                      r.classList.add("cloned"),
+                      o.itemsToAppend.push(r)),
+                    i >= o.getTotalItems() - o.items() && i <= o.getTotalItems())
                 )
                   return t.push(e);
               }
             ),
-            [].forEach.call(t, function(t, e) {
+            [].forEach.call(t, function (t, e) {
               var i;
               if (e < o.items())
                 return (
@@ -760,7 +761,7 @@ Polymer({
             this.shadowRoot
               .querySelector('slot')
               .assignedNodes({ flatten: true })
-              .filter(n => n.nodeType === Node.ELEMENT_NODE)[0]
+              .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName !== 'DOM-REPEAT')[0]
           );
         })
   },
