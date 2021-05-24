@@ -17,7 +17,7 @@ Polymer({
         --dot-active-extra-item: hidden;
       }
 
-      :host::slotted(.unknown-carousel_wrapper) {
+      .unknown-carousel_wrapper {
         text-align: center;
         position: relative;
         display: -webkit-flex;
